@@ -1,4 +1,4 @@
-export class View<T> {
+export abstract class View<T> {
 
     protected elemento: HTMLElement
 
@@ -6,9 +6,7 @@ export class View<T> {
         this.elemento = document.querySelector(seletor)
     }
 
-    template(model: T): string {
-        throw new Error('Tem que sobrescrever o método template')
-    }
+    abstract template(model: T): string
 
     update(model: T): void {
         this.elemento.innerHTML = this.template(model)

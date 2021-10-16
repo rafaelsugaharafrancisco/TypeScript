@@ -15,7 +15,7 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes);
     }
     adiciona() {
-        const negociacao = this.criaNegociacao();
+        const negociacao = Negociacao.criaNegociacao(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
         const diaUtil = this.verificarDiaUtil(negociacao.data);
         if (!diaUtil) {
             new MensagemAlertaView('#mensagemView')
@@ -25,13 +25,6 @@ export class NegociacaoController {
         this.negociacoes.adiciona(negociacao);
         this.atualizarView();
         this.limpaFormulario();
-    }
-    criaNegociacao() {
-        const exp = /-/g;
-        const data = new Date(this.inputData.value.replace(exp, ','));
-        const quantidade = parseInt(this.inputQuantidade.value);
-        const valor = parseFloat(this.inputValor.value);
-        return new Negociacao(data, quantidade, valor);
     }
     limpaFormulario() {
         this.inputData.focus();

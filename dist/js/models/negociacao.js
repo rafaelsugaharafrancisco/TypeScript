@@ -16,7 +16,7 @@ export class Negociacao {
     get volume() {
         return this._quantidade * this._valor;
     }
-    static criaNegociacao(dataString, quantidadeString, valorString) {
+    static criar(dataString, quantidadeString, valorString) {
         const exp = /-/g;
         const data = new Date(dataString.replace(exp, ','));
         const quantidade = parseInt(quantidadeString);

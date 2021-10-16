@@ -15,7 +15,7 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes);
     }
     adiciona() {
-        const negociacao = Negociacao.criaNegociacao(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
+        const negociacao = Negociacao.criar(this.inputData.value, this.inputQuantidade.value, this.inputValor.value);
         const diaUtil = this.verificarDiaUtil(negociacao.data);
         if (!diaUtil) {
             new MensagemAlertaView('#mensagemView')

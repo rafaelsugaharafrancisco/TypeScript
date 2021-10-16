@@ -21,10 +21,10 @@ export class NegociacaoController {
     }
 
     public adiciona(): void {
-        const negociacao = Negociacao.criaNegociacao(this.inputData.value, 
-                                                    this.inputQuantidade.value, 
-                                                    this.inputValor.value
-                                                    )
+        const negociacao = Negociacao.criar(this.inputData.value, 
+                                            this.inputQuantidade.value, 
+                                            this.inputValor.value
+                                            )
         const diaUtil = this.verificarDiaUtil(negociacao.data)
 
         if (!diaUtil) {

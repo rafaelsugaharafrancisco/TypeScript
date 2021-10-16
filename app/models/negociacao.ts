@@ -22,7 +22,7 @@ export class Negociacao {
         return this._quantidade * this._valor
     }
 
-    public static criaNegociacao(dataString: string, 
+    public static criar(dataString: string, 
                                 quantidadeString: string, 
                                 valorString: string): Negociacao {
         const exp = /-/g

@@ -1,3 +1,4 @@
+import { DiasDaSemana } from "../enums/dias-da-semana.js"
 import { Negociacao } from "../models/negociacao.js"
 import { Negociacoes } from "../models/negociacoes.js"
 import { MensagemAlertaView } from "../views/mensagem-alert-view.js"
@@ -24,7 +25,8 @@ export class NegociacaoController {
         const diaUtil = this.verificarDiaUtil(negociacao.data)
 
         if (!diaUtil) {
-            new MensagemAlertaView('#mensagemView').update('Data inválida. O dia deve ser apenas dias úteis')
+            new MensagemAlertaView('#mensagemView')
+                .update('Data inválida. O dia deve ser apenas dias úteis')
 
             return 
         }
@@ -55,6 +57,7 @@ export class NegociacaoController {
     }
 
     private verificarDiaUtil(data: Date): boolean {
-        return data.getDay() > 0 && data.getDay() < 6 ? true : false 
+        return data.getDay() > DiasDaSemana.DOMINGO && 
+                data.getDay() < DiasDaSemana.SABADO ? true : false 
     }
 }

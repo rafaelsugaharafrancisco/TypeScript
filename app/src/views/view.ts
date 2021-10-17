@@ -1,5 +1,6 @@
 import { tempoDeExecucao } from "../decorators/tempo-execucao.js"
 
+
 export abstract class View<T> {
 
     protected elemento: HTMLElement

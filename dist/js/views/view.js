@@ -1,6 +1,12 @@
 export class View {
     constructor(seletor) {
-        this.elemento = document.querySelector(seletor);
+        const elemento = document.querySelector(seletor);
+        if (elemento) {
+            this.elemento = elemento;
+        }
+        else {
+            throw Error(`O seletor ${seletor} não existe no DOM. Favor verificar.`);
+        }
     }
     update(model) {
         this.elemento.innerHTML = this.template(model);

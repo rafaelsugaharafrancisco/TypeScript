@@ -1,3 +1,4 @@
+import { tempoDeExecucao } from "../decorators/tempo-execucao.js"
 import { DiasDaSemana } from "../enums/dias-da-semana.js"
 import { Negociacao } from "../models/negociacao.js"
 import { Negociacoes } from "../models/negociacoes.js"
@@ -20,6 +21,7 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes)
     }
 
+    @tempoDeExecucao()
     public adiciona(): void {
         const negociacao = Negociacao.criar(this.inputData.value, 
                                             this.inputQuantidade.value, 
